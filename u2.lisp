@@ -1,3 +1,4 @@
+(in-package :kme)
 (defvar *dbg* t)
 (defun quote_str (s) (rm-colon (quote-str s)))
 ;;make so ins can also be [] vs just * (by convention) so easier to interoperate w/clips/pprj:pins

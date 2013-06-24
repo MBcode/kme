@@ -1,4 +1,5 @@
-;threec utilities
+(in-package :kme)
+;
 (defun km-seqp+ (s)  ;mv2 kmb/u2.lisp
   (km-seqp (list+ s)))
  ;====start of sys.lisp
