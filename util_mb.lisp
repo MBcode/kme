@@ -1449,8 +1449,8 @@ If HEADER-VALUE-PARSER return multiple values, they are concatenated together in
         collect (funcall linefnc line stream2)))))
  
 ;-from rsc2.cl /kick of parsers
-#+sbcl ;or #-acl
-(defun run-shell-command (txt) (asdf:run-shell-command txt))
+;#+sbcl ;or #-acl
+;(defun run-shell-command (txt) (asdf:run-shell-command txt)) ;taken out:june24,2013
 (defun rsc (txt) (asdf:run-shell-command txt))
 ;(trace rsc)
  
@@ -1673,7 +1673,7 @@ If HEADER-VALUE-PARSER return multiple values, they are concatenated together in
 
 ;in my sbclrc now
 ;#+sbcl ;or #-acl
-#-sbcl ;for sbcl in vicl2
+;#-sbcl ;for sbcl in vicl2  j24
 (defun run-ext (cmd &rest args)
           (let ((str (make-string-output-stream)))
             #+sbcl (sb-ext:run-program cmd args :search t :output str)

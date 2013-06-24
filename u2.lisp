@@ -539,3 +539,7 @@
 (defun pl2ins (ins pl)
   "ins w/s,v from pl"
   (al2ins ins (plist-to-alist pl)))
+
+;=post fork:
+(defun all (&optional (cls '|data|)) 
+  (all-instances cls))

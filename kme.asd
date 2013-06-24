@@ -5,17 +5,17 @@
 (ql 'km)
 
 (in-package #:cl-user)
-;(in-package #:km)
+
+(defun in () 
+  (in-package :kme))
 
 (defpackage :kme
     (:use :cl :asdf :km)
-    (:export "taxonomy" "show" "showme" "km")
+    (:export "taxonomy" "show" "showme" "km" "all-instances")
     )
 
 (in-package :kme)
-;(import 'km::taxonomy)
-;(import 'km::show)
-(import 'km::(taxonomy show showme km load-kb))
+(import 'km::(taxonomy show showme km load-kb all-instances))
 
 (defun lo () (sb-ext:exit)) ;better one in my .sbclrc
 (defun bt (&optional (n 7)) (sb-debug:backtrace n))
