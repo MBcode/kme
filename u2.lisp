@@ -128,7 +128,8 @@
   "km id  interned"
   (let ((i (ki s)))  ;2bad can't make where cls&relation names not *ed
     (if (symbolp i) i 
-      (intern i))))
+      (intern i :km ;new j24, to deal w/using packaged version now
+              ))))
 ;
 (defun ins-of-p (i cls)
   "is ins member of the class"
