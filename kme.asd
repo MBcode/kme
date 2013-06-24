@@ -11,14 +11,15 @@
 
 (defpackage :kme
     (:use :cl :asdf :km)
-    (:export "taxonomy" "show" "showme" "km" "all-instances")
+   ;(:export "taxonomy" "show" "showme" "km" "all-instances")
     )
 
 (in-package :kme)
-(import 'km::(taxonomy show showme km load-kb all-instances))
+(import 'km::(taxonomy show showme km load-kb all-instances save-kb))
 
 (defun lo () (sb-ext:exit)) ;better one in my .sbclrc
 (defun bt (&optional (n 7)) (sb-debug:backtrace n))
+
 
 (asdf:defsystem kme
   :name "kme"
@@ -27,9 +28,28 @@
   :author "bobak@balisp.org"
   :licence "GPL-ish tbd"
   :description "km for ML/discovery/etc" 
-  :components ( 
+  :serial t
+  :components (;(:file "package") ;see if this helps
                 (:file "util_mb")
                ;(:file "util_km") ;maybe transition u2 here?
                 (:file "u2")
-                ) :serial t
+                ) 
   :depends-on (km))
+
+
+#+ignore ;soon, but just: (load "test/test.lisp") for now
+(asdf:defsystem kme-test
+  :name "kme-test"
+  :version "0.0.1"
+  :maintainer "bobak"
+  :author "bobak@balisp.org"
+  :licence "GPL-ish tbd"
+  :description "test the Knowledge_Modeling_Env"
+  :serial t
+  ((:module "test"
+            :serial t
+            :components (;(:file "package") ;see if this helps
+                         (:file "util_mb")
+                        ) 
+            :depends-on (kme))
+   ))
