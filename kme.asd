@@ -46,10 +46,10 @@
   :licence "GPL-ish tbd"
   :description "test the Knowledge_Modeling_Env"
   :serial t
-  ((:module "test"
+  ((:module #:test
             :serial t
             :components (;(:file "package") ;see if this helps
-                         (:file "util_mb")
+                         (:file "test")
                         ) 
             :depends-on (kme))
    ))
