@@ -3,7 +3,9 @@
 (sv-cls "inst1" "data")
 (sv "inst1" "val" 1)
 (taxonomy)
-(showme 'km::|*inst1|)
+;(showme 'km::|*inst1|)
+;or now:
+(show "inst1")
 
 ;expect to see:
 ;Loading kme.km...
