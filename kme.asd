@@ -1,8 +1,17 @@
 #+quicklisp (defun ql (a) (ql:quickload  a))
 #+quicklisp (defun qa (a) (ql:system-apropos  a))
 #+quicklisp (defun qd (a) (ql:who-depends-on  a)) 
+(defun al (l) "asdf load" (asdf:oos 'asdf:load-op l))
 
+;I should get all these libs down in :depends-on
 (ql 'km)
+(ql 'cl-csv) ;for io
+;ML libs
+;(ql 'arnesi) ;for dt
+;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
+;or:
+;(ql 'lisp-unit)
+;(al 'decisiontree)      ;https://github.com/reubencornel/cl-decisiontree
 
 (in-package #:cl-user)
 
@@ -33,6 +42,7 @@
                 (:file "util_mb")
                ;(:file "util_km") ;maybe transition u2 here?
                 (:file "u2")
+                (:file "io")
                 ) 
   :depends-on (km))
 
