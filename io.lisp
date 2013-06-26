@@ -2,7 +2,9 @@
 (in-package :kme)
 (defvar *train* "train") ;can pull from the name of the input file
 ;last used read csv to clean up some kaggle data
-(defvar *h* '(outlook temp humidity wind)) ;read&construct this instead of hard-coding
+(defvar *h* ;read&construct this instead of hard-coding
+  '(classified 
+     outlook temp humidity wind))
 
 (defun read-data-csv (&optional (file #p"train.csv"))
   (cl-csv:read-csv file ;(str-cat "data/" file ".csv") 

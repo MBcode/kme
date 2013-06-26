@@ -12,6 +12,7 @@
 ;or:
 ;(ql 'lisp-unit)
 ;(al 'decisiontree)      ;https://github.com/reubencornel/cl-decisiontree
+;=deciding on how to interface the km/e data w/the present dt data
 
 (in-package #:cl-user)
 
