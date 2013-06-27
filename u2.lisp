@@ -98,7 +98,7 @@
 ;assume keep the same, but..
 (defmethod ki ((s Symbol) &optional (pre ""))
  ;(intern (ki (symbol-name s) pre))
-  (intern (ki (underscore (safe-trim (symbol-name s))) pre))
+  (intern (ki (underscore (safe-trim (symbol-name s))) pre) :km) ;new-j26
  ;;if (prefixp "*" s) s
  ;(if (or *nostar* (prefixp "*" (symbol-name s))) s
  ;  (sym-cat "*" pre s))
@@ -137,7 +137,7 @@
 ;
 (defun show- (s)
   "w/o*"
-  (showme (intern s)))
+  (showme (intern s :km))) ;new j-26
 ;
 (defun show2 (s)
   "show ins then cls"
@@ -417,7 +417,7 @@
 (defmethod safe_v ((sy symbol))  ;already in utr2.lisp
   (let* ((s (symbol-name sy))
      (p (position ":" s :test #'equal)))
-    (if (and (numberp p) (> p 1)) (intern (safe_v s)) ;
+    (if (and (numberp p) (> p 1)) (intern (safe_v s) :km) ; ;new j-26
       sy)))
 (defmethod safe_v ((c cons))
   (when *dbg* (warn "do not send safe_v a cons"))

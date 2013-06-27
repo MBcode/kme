@@ -11,7 +11,10 @@
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
 ;(ql 'lisp-unit)
-;(al 'decisiontree)      ;https://github.com/reubencornel/cl-decisiontree
+(al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
+;or
+;(al 'cl-decision-tree)   ;https://github.com/kroger/cl-decision-tree.git
+;&/or start by integrating a pkg w/a wider variety of routines
 ;=deciding on how to interface the km/e data w/the present dt data
 
 (in-package #:cl-user)
@@ -20,7 +23,8 @@
   (in-package :kme))
 
 (defpackage :kme
-    (:use :cl :asdf :km)
+    (:use :cl :asdf :km 
+          :decisiontree)
    ;(:export "taxonomy" "show" "showme" "km" "all-instances")
     )
 
@@ -29,7 +33,6 @@
 
 (defun lo () (sb-ext:exit)) ;better one in my .sbclrc
 (defun bt (&optional (n 7)) (sb-debug:backtrace n))
-
 
 (asdf:defsystem kme
   :name "kme"
@@ -47,6 +50,9 @@
                 ) 
   :depends-on (km))
 
+;try calling a ml fnc then run more of it's tests:
+; work on this load &/or make a more simple test
+(load "test/decisiontreeTests.lisp" :print t)
 
 #+ignore ;soon, but just: (load "test/test.lisp") for now
 (asdf:defsystem kme-test
