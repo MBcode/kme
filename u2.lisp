@@ -1,4 +1,5 @@
-(in-package :kme)
+;bobak@balisp.org old km utils, that I have wanted to rework
+(in-package :kme) ;(in-package :km)
 (defvar *dbg* t)
 (defun quote_str (s) (rm-colon (quote-str s)))
 ;;make so ins can also be [] vs just * (by convention) so easier to interoperate w/clips/pprj:pins
@@ -267,6 +268,13 @@
 ;
 (defun cmp-p- (i) ;check on
   (isa-p i "numericComparator"))
+;
+;try: (km-slotvals '|*turkula__mrs._hedwig| '|name|) ;like in: kmb.lisp
+; get-slotsvals
+(defun gsv (i)
+  (get-slotsvals (kin i)))
+(defun i2al (i)
+  (mapcar- #'(lambda (pr) (cons (first pr) (first-lv (second pr)))) (gsv i)))
 ;
 (defun gv- (i sn)  ;GetValue could be a cls/relation, so don't add *
   "get of cls/relation"

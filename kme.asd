@@ -29,7 +29,8 @@
     ) ;consider a packages.lisp file
 
 (in-package :kme)
-(import 'km::(taxonomy show showme km load-kb all-instances save-kb))
+(import 'km::(taxonomy show showme km load-kb all-instances save-kb
+                       get-slotsvals))
 
 (defun lo () (sb-ext:exit)) ;better one in my .sbclrc
 (defun bt (&optional (n 7)) (sb-debug:backtrace n))
