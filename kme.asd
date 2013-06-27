@@ -23,10 +23,10 @@
   (in-package :kme))
 
 (defpackage :kme
-    (:use :cl :asdf :km 
-          :decisiontree)
+    (:use #:cl #:asdf #:km 
+          #:decisiontree)
    ;(:export "taxonomy" "show" "showme" "km" "all-instances")
-    )
+    ) ;consider a packages.lisp file
 
 (in-package :kme)
 (import 'km::(taxonomy show showme km load-kb all-instances save-kb))
@@ -46,13 +46,17 @@
                 (:file "util_mb")
                ;(:file "util_km") ;maybe transition u2 here?
                 (:file "u2")
+                (:file "kmb")
                 (:file "io")
                 ) 
   :depends-on (km))
 
+(import 'km::(gvl svl pin typ)) ;newer kmb km utils
+
 ;try calling a ml fnc then run more of it's tests:
 ; work on this load &/or make a more simple test
-(load "test/decisiontreeTests.lisp" :print t)
+;(load "test/decisiontreeTests.lisp" :print t)
+(load "test/decisiontreeT.lisp" :print t)
 
 #+ignore ;soon, but just: (load "test/test.lisp") for now
 (asdf:defsystem kme-test
