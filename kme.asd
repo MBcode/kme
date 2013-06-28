@@ -1,3 +1,4 @@
+(in-package #:cl-user)
 #+quicklisp (defun ql (a) (ql:quickload  a))
 #+quicklisp (defun qa (a) (ql:system-apropos  a))
 #+quicklisp (defun qd (a) (ql:who-depends-on  a)) 
@@ -5,13 +6,14 @@
 
 ;I should get all these libs down in :depends-on
 (ql 'km)
+;(lt)
 (ql 'cl-csv) ;for io
 ;ML libs
 ;(ql 'arnesi) ;for dt
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
 ;(ql 'lisp-unit)
-(al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
+ ;(al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
 ;or
 ;(al 'cl-decision-tree)   ;https://github.com/kroger/cl-decision-tree.git
 ;&/or start by integrating a pkg w/a wider variety of routines
@@ -22,15 +24,22 @@
 (defun in () 
   (in-package :kme))
 
+;defpackage :kme-system
 (defpackage :kme
-    (:use #:cl #:asdf #:km 
-          #:decisiontree)
+    (:use #:cl #:asdf 
+         ;#:km #:decisiontree
+          )
    ;(:export "taxonomy" "show" "showme" "km" "all-instances")
+  ;(:export :taxonomy :show :showme :km :load-kb :all-instances :save-kb :get-slotsvals :all)
     ) ;consider a packages.lisp file
 
+;(in-package :kme-system)
 (in-package :kme)
+;#+ignore
 (import 'km::(taxonomy show showme km load-kb all-instances save-kb
-                       get-slotsvals))
+                       get-slotsvals
+                       ;every ;another way to do 'all'
+                       ))
 
 (defun lo () (sb-ext:exit)) ;better one in my .sbclrc
 (defun bt (&optional (n 7)) (sb-debug:backtrace n))
@@ -52,12 +61,14 @@
                 ) 
   :depends-on (km))
 
-(import 'km::(gvl svl pin typ)) ;newer kmb km utils
+(import 'km::(svl ;gvl ;gvl still in u2.lisp
+               pin typ)) ;newer kmb km utils
 
 ;try calling a ml fnc then run more of it's tests:
 ; work on this load &/or make a more simple test
 ;(load "test/decisiontreeTests.lisp" :print t)
-(load "test/decisiontreeT.lisp" :print t)
+
+;(load "test/decisiontreeT.lisp" :print t)
 
 #+ignore ;soon, but just: (load "test/test.lisp") for now
 (asdf:defsystem kme-test

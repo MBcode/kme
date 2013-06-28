@@ -21,14 +21,18 @@
 
 (defgeneric pin (n &optional p)) ;pre ins name
 (defmethod pin  ((s String) &optional (pre *ins-pre*))
-  (kme:prefix pre s))
+ ;(kme:prefix pre s)
+  (prefix pre s)
+  )
 (defmethod pin ((s Symbol) &optional (pre *ins-pre*))
   (intern (pin (symbol-name s) pre)))
 (defmethod pin ((l List) &optional (pre *ins-pre*))
   (mapcar #'(lambda (i) (pin i :pre pre))  l))
 ;defmethod pin ((s Number) &optional (pre *ins-pre*))
 (defmethod pin (s  &optional (pre *ins-pre*))
-  (kme:prefix (to-str pre) s))
+ ;(kme:prefix (to-str pre) s)
+  (prefix (to-str pre) s)
+  )
 
 (defgeneric show (s))
 (defmethod show (s)
