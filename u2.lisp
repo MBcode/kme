@@ -550,5 +550,6 @@
   (al2ins ins (plist-to-alist pl)))
 
 ;=post fork:
-(defun all (&optional (cls '|data|)) 
+;#+ignore ;not yet
+(defun all (&optional (cls 'km::|data|)) 
   (all-instances cls))
