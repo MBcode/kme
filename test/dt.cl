@@ -1,5 +1,5 @@
-(in-package :kme
-    (:use #:cl #:km #:decisiontree))
+(in-package :decisiontree)
+;(in-package :kme) ;(:use #:cl #:km #:decisiontree) ;in asd for kme
 ;make is use this:
 ;(in-package :decisiontree)
 ;io.lisp already loads this into KM instances, so find a way to use that
@@ -14,9 +14,9 @@
 (defun i2ins (i y)
 	    (mapcar #'(lambda(z)
 			(set-attribute-value (first z) (cdr z) y))
-		    (i2al i)))
+		    (kme:i2al i)))
 (defun all-i2ins ()
-  (let ((ki (all))
+  (let ((ki (kme:all))
         (iy *instance-list*))
     ;mapcar #'(lambda(x y) (i2ins x y)) ..
     (mapcar #'i2ins ki iy)))
@@ -44,6 +44,7 @@
 	  ((outlook Rain) (temp Mild) (humidity High) (wind Strong)))
 	*instance-list*)
 
+#+ignore ;should already be set from km ins
 (mapcar #'(lambda(x y)
 	    (setf (class-name x) y))
 	*instance-list*
@@ -53,6 +54,8 @@
 ;; End of ugly initialization
 
 (defparameter *root-node* (create-classifier *instance-list*))
+
+(trace classify)
 
 (classify *root-node* ;;Root of the tree
 	  (define-instance ? (outlook Sunny) (temp Mild) (humidity High) (wind Strong)))

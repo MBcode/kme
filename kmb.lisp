@@ -1,4 +1,5 @@
-(in-package :km) ;u2.lisp in :kme   so a way to work w/both versions of the km utils at once
+(in-package :kme)
+;(in-package :km) ;u2.lisp in :kme   so a way to work w/both versions of the km utils at once
 ;KM base utils, incl gen alst2ins, &arys&larger-persist? built into base
 ;Michael bobak@computer.org copywrite is (left leaning &) not transferable
 ; especially if any of the code is a collected from other opensrc
@@ -22,7 +23,7 @@
 (defgeneric pin (n &optional p)) ;pre ins name
 (defmethod pin  ((s String) &optional (pre *ins-pre*))
  ;(kme:prefix pre s)
-  (prefix pre s)
+ (prefix pre s)
   )
 (defmethod pin ((s Symbol) &optional (pre *ins-pre*))
   (intern (pin (symbol-name s) pre)))
@@ -31,9 +32,10 @@
 ;defmethod pin ((s Number) &optional (pre *ins-pre*))
 (defmethod pin (s  &optional (pre *ins-pre*))
  ;(kme:prefix (to-str pre) s)
-  (prefix (to-str pre) s)
+ (prefix (to-str pre) s)
   )
 
+;already in u2
 (defgeneric show (s))
 (defmethod show (s)
    (showme (pin s)))

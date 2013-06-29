@@ -27,9 +27,10 @@
 ;defpackage :kme-system
 (defpackage :kme
     (:use #:cl #:asdf 
-         ;#:km #:decisiontree
+         #:km #:decisiontree
           )
-   ;(:export "taxonomy" "show" "showme" "km" "all-instances")
+   (:export :i2al :all) ;will be more
+   ;(:export "taxonomy" "show" "showme" "km" "all-instances") ;these are km
   ;(:export :taxonomy :show :showme :km :load-kb :all-instances :save-kb :get-slotsvals :all)
     ) ;consider a packages.lisp file
 
@@ -68,8 +69,10 @@
 ; work on this load &/or make a more simple test
 ;(load "test/decisiontreeTests.lisp" :print t)
 
-;(load "test/decisiontreeT.lisp" :print t)
-(load "test/dt.cl" :print t)
+;;(load "test/decisiontreeT.lisp" :print t)
+;(load "test/dt.cl" :print t)
+;try loading from ld.cl
+
 
 #+ignore ;soon, but just: (load "test/test.lisp") for now
 (asdf:defsystem kme-test

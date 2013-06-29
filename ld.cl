@@ -3,3 +3,4 @@
 (load-kb "kme.km")
 (read-data-csv)
 (taxonomy) 
+(load "test/dt.cl" :print t)
