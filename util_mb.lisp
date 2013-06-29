@@ -2784,3 +2784,13 @@ is replaced with replacement."
 (defun plen (l) (if (stringp l) l (len l)))
 (defun mplen (l) (mapcar #'plen l))
 (defun mplen2 (l) (format t "~%~a" (plen l)) (mplen l)) 
+;=added post start of SOC
+;
+;from: http://common-lisp.net/language.html
+(defun explode (string &optional (delimiter #\Space))
+  (let ((pos (position delimiter string)))
+    (if (null pos)
+        (list string)
+        (cons (subseq string 0 pos)
+              (explode (subseq string (1+ pos))
+                       delimiter)))))
