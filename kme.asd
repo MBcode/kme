@@ -13,7 +13,7 @@
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
 ;(ql 'lisp-unit)
- ;(al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
+ (al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
 ;or
 ;(al 'cl-decision-tree)   ;https://github.com/kroger/cl-decision-tree.git
 ;&/or start by integrating a pkg w/a wider variety of routines
@@ -69,6 +69,7 @@
 ;(load "test/decisiontreeTests.lisp" :print t)
 
 ;(load "test/decisiontreeT.lisp" :print t)
+(load "test/dt.cl" :print t)
 
 #+ignore ;soon, but just: (load "test/test.lisp") for now
 (asdf:defsystem kme-test
