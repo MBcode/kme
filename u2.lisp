@@ -303,7 +303,8 @@
 (defun gv4 (i sn)  (ka- "the4" sn "of" (ki i)))
 ;
 (defun gv-1 (i sn) (first-lv (gv i sn)))
-(defun gvl (i sn) (first-lv (last-lv (gv i sn))))
+;(defun gvl (i sn) (first-lv (last-lv (gv i sn)))) ;kmb uses this name for new gv
+(defun gv-l (i sn) (first-lv (last-lv (gv i sn))))
 ;
 (defun class_of (i)
   (gv i "instance-of"))
@@ -553,3 +554,7 @@
 ;#+ignore ;not yet
 (defun all (&optional (cls 'km::|data|)) 
   (all-instances cls))
+ 
+#+ignore ;not yet ;acts as cl macro
+(defun all2 (&optional (cls 'km::|data|)) 
+  (km::every cls))

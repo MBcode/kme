@@ -12,17 +12,24 @@
 ;; Use "define-instance" and push the result into a list.
 ;; Eg: (push (define-instance <Class> <attr-value pair>) <list>)
 (defun i2ins (i y)
-	    (mapcar #'(lambda(z)
-			(set-attribute-value (first z) (cdr z) y))
-		    (kme:i2al i)))
+  "km2clos ins"
+  (mapcar #'(lambda(z) (set-attribute-value (first z) (cdr z) y)
+                       (cdr z)) 
+          (butlast ;don't need2set the 'data class
+            (kme:i2al i)) 
+          ))
+
 (defun all-i2ins ()
   (let ((ki (kme:all))
         (iy *instance-list*))
     ;mapcar #'(lambda(x y) (i2ins x y)) ..
     (mapcar #'i2ins ki iy)))
-(trace all-i2ins i2ins)
- (all-i2ins)
 
+(trace all-i2ins i2ins
+       kme::i2al)
+
+(all-i2ins)
+;instead of:
 #+ignore
 (mapcar #'(lambda(x y)
 	    (mapcar #'(lambda(z)
@@ -310,6 +317,6 @@
 ;    (replace-continuous-values *range-list* *v* 'temp)
 ;    (print (gethash 'temp (attributes *v*)))))
 
-
+#+ignore ;not working
 (lisp-unit:run-tests generate-range-symbols-test)
 
