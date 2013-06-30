@@ -6,14 +6,14 @@
 
 ;I should get all these libs down in :depends-on
 (ql 'km)
-;(lt)
+;(lt) ;was test for new u2.lisp fncs
 (ql 'cl-csv) ;for io
 ;ML libs
 ;(ql 'arnesi) ;for dt
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
-;(ql 'lisp-unit)
- (al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
+(ql 'lisp-unit)
+(al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
 ;or
 ;(al 'cl-decision-tree)   ;https://github.com/kroger/cl-decision-tree.git
 ;&/or start by integrating a pkg w/a wider variety of routines
@@ -39,6 +39,7 @@
 ;#+ignore
 (import 'km::(taxonomy show showme km load-kb all-instances save-kb
                        get-slotsvals
+                       km-slotvals put-vals ;needed in kmb
                        ;every ;another way to do 'all'
                        ))
 
@@ -48,8 +49,8 @@
 (asdf:defsystem kme
   :name "kme"
   :version "0.0.1"
-  :maintainer "bobak"
-  :author "bobak@balisp.org"
+  :maintainer "bobak@balisp.org"
+  :author "bobak"
   :licence "GPL-ish tbd"
   :description "km for ML/discovery/etc" 
   :serial t
@@ -62,7 +63,7 @@
                 ) 
   :depends-on (km))
 
-(import 'km::(svl ;gvl ;gvl still in u2.lisp
+(import 'km::(svl gvl ;gvl was in u2.lisp
                pin typ)) ;newer kmb km utils
 
 ;try calling a ml fnc then run more of it's tests:
@@ -71,8 +72,7 @@
 
 ;;(load "test/decisiontreeT.lisp" :print t)
 ;(load "test/dt.cl" :print t)
-;try loading from ld.cl
-
+;try loading from ld.cl 
 
 #+ignore ;soon, but just: (load "test/test.lisp") for now
 (asdf:defsystem kme-test
@@ -90,3 +90,7 @@
                         ) 
             :depends-on (kme))
    ))
+
+;want to finish dt, work on a larger family of ML routines, &get a sparql client in
+;also, using lisp for: https://class.coursera.org/optimization-001 which I'd like to use here too.
+;Will focus on lisp ml libs, but might call out to others

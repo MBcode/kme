@@ -11,12 +11,14 @@
 (defmethod eval-km ((str String))
    (eval-str (str-cat "(km '#$" (evaluable-str str) ")")))
 
+;kin for i,esp if not eval-km, check on sn then too
+
 (defgeneric gvl (i s))
 (defmethod gvl (i s)
-  (km-slotvals  i s)) ;get-vals i #$s
+  (km-slotvals  (kin i) s)) ;get-vals i #$s
 (defgeneric svl (i s v))
 (defmethod svl (i s v)
-  (put-vals i s v))
+  (put-vals (kin i) s v))
 (defun svl-al (i alst)   ;SetValue/s from alist
   (mapcar #'(lambda (pr) (sv i (car pr) (cdr pr))) alst)) 
 
@@ -36,11 +38,11 @@
   )
 
 ;already in u2
-(defgeneric show (s))
-(defmethod show (s)
-   (showme (pin s)))
-(defmethod show ((l List))
-  (mapcar #'show l))
+;(defgeneric show (s))
+;(defmethod show (s)
+;   (showme (pin s)))
+;(defmethod show ((l List))
+;  (mapcar #'show l))
 
 (defgeneric typ (i))
 ;classp is-an-instance
