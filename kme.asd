@@ -8,12 +8,16 @@
 (ql 'km)
 ;(lt) ;was test for new u2.lisp fncs
 (ql 'cl-csv) ;for io
+(ql 'trivial-shell) ;for io
 ;ML libs
 ;(ql 'arnesi) ;for dt
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
 (ql 'lisp-unit)
 (al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
+;or
+;http://www.cc.gatech.edu/classes/cs3361_99_spring/projects/project3/decision-tree.lisp or
+;http://www.cs.cmu.edu/afs/cs/project/theo-11/www/decision-trees.lisp but algo right on km ins
 ;or
 ;(al 'cl-decision-tree)   ;https://github.com/kroger/cl-decision-tree.git
 ;&/or start by integrating a pkg w/a wider variety of routines
@@ -94,3 +98,6 @@
 ;want to finish dt, work on a larger family of ML routines, &get a sparql client in
 ;also, using lisp for: https://class.coursera.org/optimization-001 which I'd like to use here too.
 ;Will focus on lisp ml libs, but might call out to others
+;
+;Want to start a dir for the ML routines, might start w/my LispUtils/stat dir, and add
+; http://compbio.ucdenver.edu/Hunter_lab/Hunter/cl-statistics.lisp to it.
