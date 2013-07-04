@@ -3,6 +3,7 @@
 #+quicklisp (defun qa (a) (ql:system-apropos  a))
 #+quicklisp (defun qd (a) (ql:who-depends-on  a)) 
 (defun al (l) "asdf load" (asdf:oos 'asdf:load-op l))
+;later combine all ql/al into one big load list
 
 ;I should get all these libs down in :depends-on
 (ql 'km)
@@ -12,6 +13,7 @@
 ;ML libs
 (ql 'mgl-example)
 (al 'ml)
+(al 'sapa)
 ;(ql 'arnesi) ;for dt
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
