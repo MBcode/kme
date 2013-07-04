@@ -10,6 +10,8 @@
 (ql 'cl-csv) ;for io
 (ql 'trivial-shell) ;for io
 ;ML libs
+(ql 'mgl-example)
+(al 'ml)
 ;(ql 'arnesi) ;for dt
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
 ;or:
@@ -33,7 +35,9 @@
     (:use #:cl #:asdf 
          #:km #:decisiontree
           )
-   (:export :i2al :all) ;will be more
+   (:export :i2al :all   ;will be more
+            ;:gv :gvl ;:km
+            :lo :bt)
    ;(:export "taxonomy" "show" "showme" "km" "all-instances") ;these are km
   ;(:export :taxonomy :show :showme :km :load-kb :all-instances :save-kb :get-slotsvals :all)
     ) ;consider a packages.lisp file
