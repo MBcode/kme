@@ -8,15 +8,19 @@
 ;I should get all these libs down in :depends-on
 (ql 'km)
 ;(lt) ;was test for new u2.lisp fncs
-(ql 'cl-csv) ;for io
+(ql 'cl-csv) ;for io ;look@ data-table
 (ql 'trivial-shell) ;for io
-;ML libs
+;ML/stat.. libs
 (ql 'mgl-example)
 (al 'ml)
 (al 'sapa)
+(ql 'cl-mathstats)
+(ql 'screamer) ;try on optimization assignments
+;(ql 'cl-graph) ;might want2try
+;(ql 'kr) ;km has most of ;miss garnet
 ;(ql 'arnesi) ;for dt
 ;(al 'cl-decision-tree) ;https://github.com/kroger/cl-decision-tree
-;or:
+;or: ;might skip these soon:
 (ql 'lisp-unit)
 (al 'decisiontree)        ;https://github.com/reubencornel/cl-decisiontree
 ;or
