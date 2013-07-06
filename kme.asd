@@ -8,11 +8,14 @@
 ;I should get all these libs down in :depends-on
 (ql 'km)
 ;(lt) ;was test for new u2.lisp fncs
-(ql 'cl-csv) ;for io ;look@ data-table
+;io, consider a dir, have some sqlite, also use lq
+(ql 'cl-csv) ;for io ;look@ data-table, not yet
 (ql 'trivial-shell) ;for io
+(lq) ;in my .sbclrc ;pnathan/cl-linq
 ;ML/stat.. libs
 (ql 'mgl-example)
 (al 'ml)
+(ql 'cl-bayesnet) ;get into dne or get around
 (al 'sapa)
 (ql 'cl-mathstats)
 (ql 'screamer) ;try on optimization assignments
