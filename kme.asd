@@ -1,23 +1,30 @@
+;bobak@balisp.org
 (in-package #:cl-user)
 #+quicklisp (defun ql (a) (ql:quickload  a))
 #+quicklisp (defun qa (a) (ql:system-apropos  a))
 #+quicklisp (defun qd (a) (ql:who-depends-on  a)) 
 (defun al (l) "asdf load" (asdf:oos 'asdf:load-op l))
 ;later combine all ql/al into one big load list
+; try to alter outside pkgs, but might want2harvast some internals
 
 ;I should get all these libs down in :depends-on
 (ql 'km)
 ;(lt) ;was test for new u2.lisp fncs
-;io, consider a dir, have some sqlite, also use lq
 (ql 'cl-csv) ;for io ;look@ data-table, not yet
 (ql 'trivial-shell) ;for io
+;(al 'cl-gui) ;https://github.com/mathematical-systems/cl-gui
+;io, consider a dir, have some sqlite, also use lq
+(ql '4store) ;for io
 (lq) ;in my .sbclrc ;pnathan/cl-linq
 ;ML/stat.. libs
 (ql 'mgl-example)
 (al 'ml)
+;(al 'clml) ;https://github.com/mathematical-systems/clml
+;(al 'malecoli)  ;has protege.stanford.edu link;also algernon-tab
+;http://www.cs.utexas.edu/users/qr/QR-software.html sfs,algernon,qsim,qpc
 (ql 'cl-bayesnet) ;get into dne or get around
 (al 'sapa)
-(ql 'cl-mathstats)
+(ql 'cl-mathstats) ;have cls on linux, miss xlispstat/vista viz
 (ql 'screamer) ;try on optimization assignments
 ;(ql 'cl-graph) ;might want2try
 ;(ql 'kr) ;km has most of ;miss garnet
