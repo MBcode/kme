@@ -9,12 +9,18 @@
 
 ;I should get all these libs down in :depends-on
 (ql 'km)
+;(ql 'lisa) ;miss this, km can do some of it
 ;(lt) ;was test for new u2.lisp fncs
 (ql 'cl-csv) ;for io ;look@ data-table, not yet
 (ql 'trivial-shell) ;for io
+;(al 'future) &/or:
+;(ql 'lfarm-test) ;which uses: (ql 'lparallel)
+;(al 'erlisp)  ;also sbcl has native mailboxes
+;(al 'par-eval) ;uses mpi
 ;(al 'cl-gui) ;https://github.com/mathematical-systems/cl-gui
 ;io, consider a dir, have some sqlite, also use lq
 (ql '4store) ;for io
+;(al 'ontolisp)
 (lq) ;in my .sbclrc ;pnathan/cl-linq
 ;ML/stat.. libs
 (ql 'mgl-example)
