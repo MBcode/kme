@@ -31,6 +31,10 @@
 (ql 'cl-bayesnet) ;get into dne or get around
 (al 'sapa)
 (ql 'cl-mathstats) ;have cls on linux, miss xlispstat/vista viz
+;(ql 'rcl) ;also better in linux
+;(al 'cl-octave) ;or just redo Ng's ML in other e.g.:
+;(ql 'lisp-matrix) ;gsll, etc..
+;(ql 'zeromq) ;or similar to ipython if possible
 (ql 'screamer) ;try on optimization assignments
 ;(ql 'cl-graph) ;might want2try
 ;(ql 'kr) ;km has most of ;miss garnet
