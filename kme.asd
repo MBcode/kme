@@ -1,5 +1,6 @@
 ;bobak@balisp.org
 (in-package #:cl-user)
+;in flux/namespace issues
 #+quicklisp (defun ql (a) (ql:quickload  a))
 #+quicklisp (defun qa (a) (ql:system-apropos  a))
 #+quicklisp (defun qd (a) (ql:who-depends-on  a)) 
