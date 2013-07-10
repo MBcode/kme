@@ -60,7 +60,7 @@
 ;defpackage :kme-system
 (defpackage :kme
     (:use #:cl #:asdf 
-         #:km #:decisiontree
+         #:km ;#:decisiontree
           )
    (:export :i2al :all   ;will be more
             ;:gv :gvl ;:km
@@ -100,6 +100,10 @@
 
 (import 'km::(svl gvl ;gvl was in u2.lisp
                pin typ)) ;newer kmb km utils
+
+(defmethod asdf:perform :after ((o asdf:load-op)
+                                (c (eql (asdf:find-system :kme))))
+    (provide 'kme))
 
 ;try calling a ml fnc then run more of it's tests:
 ; work on this load &/or make a more simple test

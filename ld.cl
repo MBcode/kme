@@ -1,6 +1,6 @@
 (al 'kme)
 (in)
 (load-kb "kme.km")
-(read-data-csv)
+(kme::read-data-csv)
 (taxonomy) 
-(load "test/dt.cl" :print t)
+;(load "test/dt.cl" :print t)
